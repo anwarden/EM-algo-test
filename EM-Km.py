@@ -23,7 +23,7 @@ X_std = scaler.fit_transform(X)
 
 # K-means clustering
 start = time()
-kmeans = KMeans(n_clusters=3, random_state=0, n_init=10)
+kmeans = KMeans(n_clusters=3, random_state=0, n_init=1)
 kmeans_labels = kmeans.fit_predict(X_std)
 end = time()
 K_means_time = end - start

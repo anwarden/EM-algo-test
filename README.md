@@ -1,4 +1,4 @@
-# EM-algo-test
+# EM-algo-test on IRIS dataset
 
 The [Code](EM-km.py) file compares The Expectation-Maximization for Mixture fo Gaussian and the K-means algorithm, on convergence speed and accuracy.
 
@@ -27,7 +27,7 @@ pip install ucimlrepo
 
 **K-means :**
 
-- K-means clustering time: 0.2985 seconds
+- K-means clustering time: 0.1000 seconds
 - K-means Silhouette: 0.4590
 - ARI: 0.6201
 
@@ -43,16 +43,17 @@ You will also find the graph of clusters of both algorithm plotted by reducing d
 
 ![Alt Result Graph](Figure_1.png)
 
-## Analysis
+## Short Analysis
 
-Looking at ARI:
+**Looking at ARI:**
 
 - GMM has clearly better predictions of the clusters acheiving almost 90%, K-means only achieves 62%. That's because while K-means finds geometrical cleanest clusters (often results to spherical clusters) so it's limited to prediction with that kind of logic, GMM can fit and predict clusters accurately even if they are not equal variance and spherical.
 
-Looking at SS:
+**Looking at SS:**
 
 - However the clusters are less dense with GMM than K-means This result is no surprise, K-means does clusters using euclidian distance, just like silhouette. On the other hand, GMM uses probalistic log-likelihood.
 
-Looking at Time:
+**Looking at Time:**
 
--
+- This time we reduce the number of inits, because we want to compare time and not accuracy. We see that even if the K-means algorithm is lighter every iteration, it converges slower and the run time is longer.
+- In fact ,GMM involves Matrix inverse O(D^3) and Covariance update O(D^2) with D the number of features (dimensions of the matrix)
